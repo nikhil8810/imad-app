@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var Blogs = {
-    'Blog-one': {
+    'blog-one': {
   title: 'Blog-one | Nikhil',
   heading: 'Blog-one',
   date:'Feb 16 2018',
@@ -39,7 +39,7 @@ var Blogs = {
                 </ol>
         `
 },
-    'Blog-two': {
+    'blog-two': {
   title: 'Blog-two | Nikhil',
   heading: 'Blog-two',
   date:'Feb 16 2018',
@@ -109,9 +109,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:BlogName', function (req, res) {
-  var BlogName = req.params.BlogName;
-  res.send(createTemplate(Blogs[BlogName]));
+app.get('/:blogName', function (req, res) {
+  var blogName = req.params.blogName;
+  res.send(createTemplate(Blogs[blogName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
