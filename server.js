@@ -14,7 +14,7 @@ app.get('/blog-one', function (req, res) {
 });
 
 app.get('/blog-two', function (req, res) {
-  res.send('Blog-two requested and will be served here');
+  res.sendFile(path.join(__dirname, 'ui', 'blog-two.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
