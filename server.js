@@ -63,7 +63,10 @@ var Blogs = {
                     Tanmay bhatt makes the fun of sachin Tendulker.
                 </li>
             </ul>
-        </div>`}
+        </div>
+        `
+        
+    }
 };
 
 function createTemplate(data){
