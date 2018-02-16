@@ -107,7 +107,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:BlogName', function (req, res) {
-  var BlogName=req.params.BlogName;
+  var BlogName = req.params.BlogName;
   res.send(createTemplate(Blogs[BlogName]));
 });
 
