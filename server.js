@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Blogone = {
+var Blogs = {
+    'Blog-one': {
   title: 'Blog-one | Nikhil',
   heading: 'Blog-one',
   date:'Feb 16 2018',
@@ -37,6 +38,32 @@ var Blogone = {
                     </li>
                 </ol>
         `
+},
+    'Blog-two': {
+  title: 'Blog-two | Nikhil',
+  heading: 'Blog-two',
+  date:'Feb 16 2018',
+  content:`<div>
+            <h3>
+                News Headlines
+            </h3>
+        </div>
+        <div>
+            <p>
+                Todays news:
+            </p>
+            <ul style="list-style-type:disc">
+                <li>
+                    company A overtook company B.
+                </li>
+                <li>
+                    Kolkata is the bigest city after Mumbai.
+                </li>
+                <li>
+                    Tanmay bhatt makes the fun of sachin Tendulker.
+                </li>
+            </ul>
+        </div>`}
 };
 
 function createTemplate(data){
@@ -79,12 +106,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/blog-one', function (req, res) {
-  res.send(createTemplate(Blogone));
-});
-
-app.get('/blog-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'blog-two.html'));
+app.get('/:BlogName', function (req, res) {
+  var BlogName=req.params.BlogName;
+  res.send(createTemplate(Blogs[BlogName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
