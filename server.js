@@ -14,11 +14,11 @@ var Blogone = {
                 Personal details
             </h3>
            </div>
-           <dic>
+           <div>
             <p>
                 This is Nikhil, and i love developing.
             </p>
-        </dic>
+        </div>
         <div>
             <h3>
                 Profession details
