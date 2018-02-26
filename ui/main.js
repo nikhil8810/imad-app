@@ -1,12 +1,25 @@
+//counter code
 var button = document.getElementById('counter');
-var counter = 0;
 
-button.onclick = function(){
+button.onclick = function () {
     
+    //create the request object
+    var request = new XMlHttpRequest();
     
+    //Capture the response and store it in a variable
+    request.onreadystatechange = function () {
+        if(request.readystate == XMLRequest.DONE){
+         //Take some action
+         if(request.status == 200) {
+             var counter = request.responseText;
+             var span = document.getElementById('count');
+             span.innerHTML = counter.toString();
+         }
+        }
+        //Not done yet
+    };
     
-    
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    //Make tha request
+    request.open('GET', 'http://someonenikhilkr.imad.hasura-app.io', true);
+    request.send(null);
 };
