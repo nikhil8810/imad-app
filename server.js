@@ -141,7 +141,6 @@ app.get('/submit-name/:name', function (req, res) {
     
     res.send(JSON.stringify(names));//too
     
-    
 });
 
 
